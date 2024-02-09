@@ -1,5 +1,34 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://furquan-lp.gh.srv.us/</title>
-<meta http-equiv="refresh" content="0; URL=https://furquan-lp.gh.srv.us/">
-<link rel="canonical" href="https://furquan-lp.gh.srv.us/">
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting to https://furquan-lp.gh.srv.us/</title>
+    <!--<meta http-equiv="refresh" content="0; URL=https://furquan-lp.gh.srv.us/" />
+    <link rel="canonical" href="https://furquan-lp.gh.srv.us/" />-->
+  </head>
+  <body>
+    <main></main>
+    <script>
+      const URL = "https://furquan-lp.gh.srv.us/";
+      const mainElement = document.getElementsByTagName("main");
+      const titleElement = document.getElementsByTagName("title");
+
+      function handleRedirect(response) {
+        if (response.status === 200) {
+          window.location.replace(URL);
+        } else {
+          mainElement[0].innerHTML = `An error has occurred. Response code: ${response.status}.`;
+          titleElement[0].innerHTML = "Redirection Error";
+        }
+      }
+
+      fetch(URL)
+        .then((r) => handleRedirect(r))
+        .catch((e) => {
+          titleElement[0].innerHTML = "Server Down";
+          mainElement[0].innerHTML = `<h1>Unfortunately, the server is down.</h1><p>It seems that the tunnel server is down or undergoing some maintenance. Please try again later or contact the administrator.</p><code>${e}</code><p>Contact email: syed@nextdev.in</p><p>- Syed Furquan Ahmad (developer)</p>`;
+          console.error("Error:", e);
+        });
+    </script>
+  </body>
+</html>
