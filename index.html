@@ -12,7 +12,7 @@
       const URL = "https://furquan-lp.gh.srv.us/";
       const mainElement = document.getElementsByTagName("main");
       const titleElement = document.getElementsByTagName("title");
-      
+
       function handleRedirect(response) {
         if (response.status === 200) {
           window.location.replace(URL);
@@ -24,7 +24,12 @@
 
       fetch(URL)
         .then((r) => handleRedirect(r))
-        .catch((e) => console.log("Error:", e));
+        .catch((e) => {
+          titleElement[0].innerHTML = "Server Down";
+          mainElement[0].innerHTML =
+            "<h1>Unfortunately, the server is down.</h1><p>It seems that the tunnel server is down or undergoing some maintenance. Please try again later or contact the administrator.</p>";
+          console.error("Error:", e);
+        });
     </script>
   </body>
 </html>
