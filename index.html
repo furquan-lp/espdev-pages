@@ -26,8 +26,7 @@
         .then((r) => handleRedirect(r))
         .catch((e) => {
           titleElement[0].innerHTML = "Server Down";
-          mainElement[0].innerHTML =
-            "<h1>Unfortunately, the server is down.</h1><p>It seems that the tunnel server is down or undergoing some maintenance. Please try again later or contact the administrator.</p>";
+          mainElement[0].innerHTML = `<h1>Unfortunately, the server is down.</h1><p>It seems that the tunnel server is down or undergoing some maintenance. Please try again later or contact the administrator.</p><code>${e}</code><p>Contact email: syed@nextdev.in</p><p>- Syed Furquan Ahmad (developer)</p>`;
           console.error("Error:", e);
         });
     </script>
